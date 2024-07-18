@@ -6,15 +6,15 @@ interface GoalItemProps {
     onDeleteGoal: (id: string) => void
  }
 
-const GoalItem = ({ text, id, onDeleteGoal }: GoalItemProps) => {
+const GoalItem = (props: GoalItemProps) => {
   return (
     <Pressable 
       android_ripple={{ color: '#dddddd' }} 
-      onPress={onDeleteGoal.bind(this, id)}
+      onPress={props.onDeleteGoal.bind(this, props.id)}
       style={({ pressed }) => pressed && styles.pressedItem}
     >
       <View style={styles.goalItem}>
-        <Text style={styles.goalText}>{text}</Text>
+        <Text style={styles.goalText}>{props.text}</Text>
       </View>
     </Pressable>
   )
